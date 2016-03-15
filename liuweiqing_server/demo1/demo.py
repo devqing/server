@@ -13,7 +13,7 @@ from tornado.options import define, options
 import pymongo
 from pymongo import MongoClient
 
-define("port", default=8002, help="run on the given port", type=int)
+define("port", default=1880, help="run on the given port", type=int)
 
 class Application(tornado.web.Application):
 	def __init__(self):
@@ -27,7 +27,7 @@ class Application(tornado.web.Application):
 			debug=True,
 			)
 
-		client = pymongo.MongoClient("localhost", 12345)
+		client = pymongo.MongoClient("120.25.194.185", 27017)
 		self.db = client["demo1"]
 		tornado.web.Application.__init__(self, handlers, **settings)
 
