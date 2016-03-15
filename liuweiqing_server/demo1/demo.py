@@ -28,7 +28,12 @@ class Application(tornado.web.Application):
 			)
 
 		client = pymongo.MongoClient("120.25.194.185", 27017)
-		self.db = client["demo1"]
+		self.db = client["Test_mongo"]
+		self.table = self.db["test"]
+		a =  self.table.insert({'name':'zdx','age':25})
+		print a
+		for u in self.table.find():
+			print u
 		tornado.web.Application.__init__(self, handlers, **settings)
 
 
