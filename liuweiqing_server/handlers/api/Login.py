@@ -26,5 +26,4 @@ class Login(tornado.web.RequestHandler):
 		}
 		var = []
 		data = {"area":var}
-		print(data)
 		self.write(data)
