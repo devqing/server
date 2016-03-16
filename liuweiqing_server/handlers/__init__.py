@@ -4,9 +4,8 @@
 """
 @author: liuweiqing
 @software: PyCharm Community Edition
-@file: SignUp.py
-@date: 16/3/15 下午4:58
+@file: __init__.py
+@date: 16/3/16 下午3:55
 """
 
-from Login import Login
-from SignUp import SignUp
+import api
