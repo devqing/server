@@ -14,9 +14,11 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.options
 import tornado.web
+from tornado import gen
 
 class SignUp(tornado.web.RequestHandler):
 
+	@gen.coroutine
 	def post(self, *args, **kwargs):
 		data = {
 			'_id':'123',
