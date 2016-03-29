@@ -11,6 +11,6 @@
 from handlers import api
 
 urls = [
-    (r'/api.login',api.Login),
-    (r'/api.signup',api.SignUp),
+    (r"/api.login", api.Login),
+    (r'/api.signup', api.SignUp),
 ]

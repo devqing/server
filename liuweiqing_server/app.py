@@ -18,6 +18,7 @@ import tornado.options
 import tornado.web
 from tornado.options import define, options
 from handlers import api
+from urls import urls
 
 import pymongo
 from pymongo import MongoClient
@@ -79,7 +80,7 @@ define("port", default=1880, help="run on the given port", type=int)
 
 def main():
 	tornado.options.parse_command_line()
-	app = tornado.web.Application(handlers=[(r"/api.login", api.Login),(r"/api.signup",api.SignUp)])
+	app = tornado.web.Application(urls)
 	http_server = tornado.httpserver.HTTPServer(app)
 	http_server.listen(options.port)
 	tornado.ioloop.IOLoop.instance().start()

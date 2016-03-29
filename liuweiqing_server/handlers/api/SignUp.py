@@ -8,15 +8,10 @@
 @date: 16/3/15 下午4:58
 """
 
-import tornado.auth
-import tornado.escape
-import tornado.httpserver
-import tornado.ioloop
-import tornado.options
-import tornado.web
 from tornado import gen
+import base
 
-class SignUp(tornado.web.RequestHandler):
+class SignUp(base.RequestHandler):
 
 	@gen.coroutine
 	def post(self, *args, **kwargs):
