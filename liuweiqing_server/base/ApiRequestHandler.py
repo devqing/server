@@ -14,7 +14,7 @@ from RequestHandler import RequestHandler
 
 
 class ApiRequestHandler(RequestHandler):
-    def render(self, data={}):
+    def render(self, data):
         retval = {
             "flag":"ok",
             "data":data

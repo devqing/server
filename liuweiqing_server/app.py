@@ -27,25 +27,13 @@ define("port", default=1880, help="run on the given port", type=int)
 
 # class Application(tornado.web.Application):
 # 	def __init__(self):
-# 		handlers = [
-# 			(r"/", MainHandler),
-# 			(r"/blog", BlogHandler),
-# 			(r"/login",api.Login),
-# 		]
 # 		settings = dict(
 # 			template_path=os.path.join(os.path.dirname(__file__), "templates"),
 # 			static_path=os.path.join(os.path.dirname(__file__), "static"),
 # 			debug=True,
 # 			)
 #
-# 		client = pymongo.MongoClient("120.25.194.185", 27017)
-# 		self.db = client["Test_mongo"]
-# 		self.table = self.db["test"]
-# 		a =  self.table.insert({'name':'zdx','age':25})
-# 		print a
-# 		for u in self.table.find():
-# 			print u
-# 		tornado.web.Application.__init__(self, handlers, **settings)
+# 		tornado.web.Application.__init__(self, urls, **settings)
 #
 #
 # class MainHandler(tornado.web.RequestHandler):
@@ -80,7 +68,10 @@ define("port", default=1880, help="run on the given port", type=int)
 
 def main():
 	tornado.options.parse_command_line()
-	app = tornado.web.Application(urls)
+	app = tornado.web.Application(
+        urls,
+        template_path=os.path.join(os.path.dirname(__file__), "templates")
+    )
 	http_server = tornado.httpserver.HTTPServer(app)
 	http_server.listen(options.port)
 	tornado.ioloop.IOLoop.instance().start()
