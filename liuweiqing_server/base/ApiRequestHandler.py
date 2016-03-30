@@ -8,8 +8,6 @@
 @date: 16/3/17 下午5:39
 """
 
-import tornado.web
-import tornado.httpserver
 from RequestHandler import RequestHandler
 
 

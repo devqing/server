@@ -9,6 +9,7 @@
 """
 
 import tornado.web
+import requests
 
 class RequestHandler(tornado.web.RequestHandler):
     def __init__(self, *args, **kwargs):
