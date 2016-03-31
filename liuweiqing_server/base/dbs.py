@@ -9,7 +9,6 @@
 """
 
 import motor
-import urls
 
 mongo_client = motor.MotorClient('mongodb://120.25.194.185:27017')
 

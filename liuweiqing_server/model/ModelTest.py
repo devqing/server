@@ -13,12 +13,9 @@ import pymongo
 
 class ModelTest(object):
 
-    # client = pymongo.MongoClient("120.25.194.185", 27017)
     client = dbs.mongo_client
-    db = 'shark-debug1'
+    db = dbs.MONGO_DATABASE
     cls = None #子类提供
-    # client = pymongo.MongoClient("120.25.194.185", 27017)
-    # db = client
     def __init__(self):
         super(ModelTest, self).__init__()
 
