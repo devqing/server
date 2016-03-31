@@ -9,9 +9,9 @@
 """
 
 from tornado import gen
-from Model import Model
+from ModelTest import ModelTest
 
-class DeviceModel(Model):
+class DeviceModel(ModelTest):
 
     cls = "device"
     @gen.coroutine

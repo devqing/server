@@ -7,3 +7,6 @@
 @file: __init__.py
 @date: 16/3/29 下午1:58
 """
+
+from  AccountModel import AccountModel
+

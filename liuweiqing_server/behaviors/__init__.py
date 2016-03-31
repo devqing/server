@@ -8,4 +8,4 @@
 @date: 16/3/29 下午1:52
 """
 
-from CreatServerToken import CreatServerToken
+from CreatNewUser import CreatNewUser

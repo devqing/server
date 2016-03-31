@@ -4,17 +4,26 @@
 """
 @author: liuweiqing
 @software: PyCharm Community Edition
-@file: Model.py
-@date: 16/3/29 下午1:58
+@file: ModelTest.py
+@date: 16/3/31 下午7:44
 """
 
 from base import dbs
+import pymongo
 
-class Model(object):
+class ModelTest(object):
 
+    # client = pymongo.MongoClient("120.25.194.185", 27017)
     client = dbs.mongo_client
-    db = dbs.MONGODB_DATABASE
+    db = 'shark-debug1'
     cls = None #子类提供
+    # client = pymongo.MongoClient("120.25.194.185", 27017)
+    # db = client
+    def __init__(self):
+        super(ModelTest, self).__init__()
+
+    def Get_db(self):
+        return self.client[self.db][self.cls]
 
     def Insert(self, *args, **kwargs):
         return self.Get_db().insert(*args, **kwargs)
@@ -27,6 +36,3 @@ class Model(object):
 
     def Find(self, *args, **kwargs):
         return self.Get_db().insert(*args, **kwargs)
-
-    def Get_db(self):
-        print self.client[self.db][self.cls]

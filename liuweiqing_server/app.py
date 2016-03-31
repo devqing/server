@@ -17,54 +17,11 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 from tornado.options import define, options
-from handlers import api
 from urls import urls
 
-import pymongo
-from pymongo import MongoClient
 
 define("port", default=1880, help="run on the given port", type=int)
 
-# class Application(tornado.web.Application):
-# 	def __init__(self):
-# 		settings = dict(
-# 			template_path=os.path.join(os.path.dirname(__file__), "templates"),
-# 			static_path=os.path.join(os.path.dirname(__file__), "static"),
-# 			debug=True,
-# 			)
-#
-# 		tornado.web.Application.__init__(self, urls, **settings)
-#
-#
-# class MainHandler(tornado.web.RequestHandler):
-# 	def get(self):
-# 		self.render("index.html",)
-#
-# 	def post(self):
-# 		import time
-# 		title = self.get_argument('title', None)
-# 		content = self.get_argument('content', None)
-# 		blog = dict()
-# 		if title and content:
-# 			blog['title'] = title
-# 			blog['content'] = content
-# 			blog['date'] = int(time.time())
-# 			coll = self.application.db.blog
-# 			coll.insert(blog)
-# 			self.redirect('/blog')
-#
-#
-# class BlogHandler(tornado.web.RequestHandler):
-# 	def get(self):
-# 		coll = self.application.db.blog
-# 		blog = coll.find_one()
-# 		if blog:
-# 			self.render("blog.html",
-# 				page_title = blog['title'],
-# 				blog = blog,
-# 				)
-# 		else:
-# 			self.redirect('/')
 
 def main():
 	tornado.options.parse_command_line()
