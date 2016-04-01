@@ -16,4 +16,4 @@ class CreatNewUser(Bahaviors):
     @gen.coroutine
     def Action(self, username, password):
         result = yield self.account_model.CreatAccountIfNotExist(username, password)
-        # print 222
+        raise gen.Return(result['new'])

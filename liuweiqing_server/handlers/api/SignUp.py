@@ -11,8 +11,9 @@
 import os
 from tornado import gen
 from rong import ApiClient
-import base
+from RequestHandler import RequestHandler
 from behaviors import CreatNewUser
+import error
 
 
 app_key = "8brlm7ufrnrx3"
@@ -23,19 +24,25 @@ os.environ.setdefault('rongcloud_app_secret', app_secret)
 
 rongyun_client = ApiClient()
 
-class SignUp(base.RequestHandler):
+class SignUp(RequestHandler):
 
 	@gen.coroutine
 	def post(self, *args, **kwargs):
 		mobile = self.get_argument('mobile')
 		password = self.get_argument('password')
-		uid = yield CreatNewUser().Action(mobile, password)
 
-		result = rongyun_client.user_get_token(
-            'test-userid1',
-            'test-name1',
-            'http://www.rongcloud.cn/images/logo.png')
-		print result
+		flag = yield CreatNewUser().Action(mobile, password)
+		print flag
+		if not flag:
+			raise error.AccountAlreadyExists()
+		account = yield self.account_model.GetUserFromUserName(mobile)
+		result = {
+			'mobile':account['username'],
+			'_id':str(account['_id'])
+		}
+		self.render(result)
+
+
 
 
 

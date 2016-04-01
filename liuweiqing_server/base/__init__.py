@@ -8,5 +8,4 @@
 @date: 16/3/17 下午5:28
 """
 
-from ApiRequestHandler import ApiRequestHandler
 from RequestHandler import RequestHandler

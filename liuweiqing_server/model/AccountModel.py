@@ -9,18 +9,29 @@
 """
 from ModelTest import ModelTest
 from tornado import gen
-import pymongo
-
 
 class AccountModel(ModelTest):
-
     cls = 'account'
     @gen.coroutine
     def CreatAccountIfNotExist(self, username, password):
-        acount = {
-            'username':username,
-            'password':password
 
+        retval = {'new':False,'uid':None}
+        condition = {'username':username}
+        result = yield self.Find(condition)
+        if not result:
+            acount = {
+               'username':username,
+               'password':password
+            }
+            uid = yield self.Insert(acount)
+            retval = {'new':True,'uid':uid}
+        raise gen.Return(retval)
+
+    @gen.coroutine
+    def GetUserFromUserName(self, username):
+        account = {
+            'username':username
         }
-        uid = yield self.Insert(acount)
-        print uid
+        result = yield self.Find(account)
+
+        raise gen.Return(result)

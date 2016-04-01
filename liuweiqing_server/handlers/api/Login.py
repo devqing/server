@@ -8,27 +8,23 @@
 @date: 16/3/15 下午4:58
 """
 
-import base
+from RequestHandler import RequestHandler
 from tornado import gen
 from bson.objectid import ObjectId
+import error
 
 
-
-class Login(base.ApiRequestHandler):
+class Login(RequestHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
-        orderId = self.get_argument('oid')
-
-        if orderId == 'orderId':
-            print('输出正确')
-        else:
-            print('输出错误')
-        data = {
-            '_id': '123',
-            'name': 'zdx',
-            'age': 27
-
+        mobile = self.get_argument('mobile')
+        password = self.get_argument('password')
+        condition = {
+            'username':mobile,
+            'password':password
         }
-        var = []
-        data = {"area": var}
-        self.write(data)
+        account = yield self.account_model.GetUserFromUserName(mobile)
+        # username = account['username']
+        if not account:
+            raise error.AccoountNotExists()
+        self.render({'_id':'aaaaaaaa'})

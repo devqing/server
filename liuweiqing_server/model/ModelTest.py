@@ -26,10 +26,10 @@ class ModelTest(object):
         return self.Get_db().insert(*args, **kwargs)
 
     def Update(self, *args, **kwargs):
-        return self.Get_db().insert(*args, **kwargs)
+        return self.Get_db().update(*args, **kwargs)
 
     def Remove(self):
         print 1
 
     def Find(self, *args, **kwargs):
-        return self.Get_db().insert(*args, **kwargs)
+        return self.Get_db().find_one(*args, **kwargs)

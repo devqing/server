@@ -9,8 +9,13 @@
 """
 
 import tornado.web
+from model import AccountModel
 import requests
 
 class RequestHandler(tornado.web.RequestHandler):
     def __init__(self, *args, **kwargs):
         super(RequestHandler, self).__init__(*args, **kwargs)
+
+    @property
+    def account_model(self):
+        return AccountModel()
