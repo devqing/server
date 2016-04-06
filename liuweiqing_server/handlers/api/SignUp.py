@@ -38,7 +38,7 @@ class SignUp(RequestHandler):
 		if not flag:
 			raise error.AccountAlreadyExists()
 		account = yield self.user_model.GetUserFromMobile(mobile)
-		print account['nike_name']
+		# print account['nike_name']
 		# uid = str(account['_id'])
 		# rongyun_token = rongyun_client.user_get_token(
 		# 	uid,
