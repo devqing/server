@@ -10,7 +10,8 @@
 
 import tornado.web
 from model import AccountModel
-import requests
+from model import UserModel
+from model import TokenModel
 
 class RequestHandler(tornado.web.RequestHandler):
     def __init__(self, *args, **kwargs):
@@ -19,3 +20,11 @@ class RequestHandler(tornado.web.RequestHandler):
     @property
     def account_model(self):
         return AccountModel()
+
+    @property
+    def user_model(self):
+        return UserModel()
+
+    @property
+    def token_model(self):
+        return TokenModel()

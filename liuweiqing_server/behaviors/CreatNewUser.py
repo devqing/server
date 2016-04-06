@@ -14,6 +14,6 @@ from tornado import gen
 class CreatNewUser(Bahaviors):
 
     @gen.coroutine
-    def Action(self, username, password):
-        result = yield self.account_model.CreatAccountIfNotExist(username, password)
+    def Action(self, mobile, password):
+        result = yield self.user_model.CreatUserIfNotExist(mobile, password)
         raise gen.Return(result['new'])

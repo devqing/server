@@ -9,13 +9,17 @@
 """
 
 from model import AccountModel
-
-# account_model = AccountModel()
+from model import UserModel
+from model import TokenModel
 
 class Bahaviors(object):
     def __init__(self):
         super(Bahaviors, self).__init__()
 
     @property
-    def account_model(self):
-        return AccountModel()
+    def user_model(self):
+        return UserModel()
+
+    @property
+    def token_model(self):
+        return TokenModel()
