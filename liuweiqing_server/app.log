@@ -1,0 +1,20 @@
+[I 160406 15:28:11 app:32] **Request to MainHandler!
+[I 160406 15:29:51 app:32] **Request to MainHandler!
+[I 160406 15:29:57 web:1946] 200 POST /api.signup?mobile=13671311112&password=123123 (::1) 272.15ms
+[I 160406 15:30:02 web:1946] 200 POST /api.signup?mobile=13671311119&password=123123 (::1) 231.46ms
+[I 160406 15:30:33 app:32] **Request to MainHandler!
+[E 160406 15:30:39 web:1524] Uncaught exception POST /api.signup?mobile=13671311110&password=123123 (::1)
+    HTTPServerRequest(protocol='http', host='localhost:1880', method='POST', uri='/api.signup?mobile=13671311110&password=123123', version='HTTP/1.1', remote_ip='::1', headers={'Origin': 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop', 'Content-Length': '0', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:1880', 'Accept': '*/*', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'Postman-Token': '1cab1e1d-e659-5886-ecf3-5ac4d968f3a8'})
+    Traceback (most recent call last):
+      File "/Library/Python/2.7/site-packages/tornado-4.3-py2.7-macosx-10.10-intel.egg/tornado/web.py", line 1445, in _execute
+        result = yield result
+      File "/Library/Python/2.7/site-packages/tornado-4.3-py2.7-macosx-10.10-intel.egg/tornado/gen.py", line 1008, in run
+        value = future.result()
+      File "/Library/Python/2.7/site-packages/tornado-4.3-py2.7-macosx-10.10-intel.egg/tornado/concurrent.py", line 232, in result
+        raise_exc_info(self._exc_info)
+      File "/Library/Python/2.7/site-packages/tornado-4.3-py2.7-macosx-10.10-intel.egg/tornado/gen.py", line 1017, in run
+        yielded = self.gen.send(value)
+      File "/Users/liuweiqing/workspace/shark_server/liuweiqing_server/handlers/api/SignUp.py", line 42, in post
+        uid = account['_id11']
+    KeyError: '_id11'
+[E 160406 15:30:39 web:1946] 500 POST /api.signup?mobile=13671311110&password=123123 (::1) 392.05ms
