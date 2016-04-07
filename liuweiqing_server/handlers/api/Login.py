@@ -33,6 +33,6 @@ class Login(RequestHandler):
             '_id':str(user['_id']),
             'nike_name':user['nike_name'],
             'server_token':token_result['server_token'],
-            'rongyun_token':token_result['rongyun_token']
+            'token':token_result['rongyun_token']
         }
         self.render(result)
