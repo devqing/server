@@ -14,4 +14,5 @@ urls = [
     (r"/api.login", api.Login),
     (r'/api.signup', api.SignUp),
     (r'/api.jsfile', api.JsFile),
+    (r'/api.search_user', api.SearchUserByMobile),
 ]
