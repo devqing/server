@@ -12,3 +12,4 @@ from Login import Login
 from SignUp import SignUp
 from JsFile import JsFile
 from SearchUserByMobile import SearchUserByMobile
+from ApplyFriend import AppleFriend
