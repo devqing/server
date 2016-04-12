@@ -22,6 +22,7 @@ class SearchUserByMobile(RequestHandler):
             data = {
                 '_id':str(result['_id']),
                 'nike_name':result['nike_name'],
-                'avatar':result['nike_name']
+                'avatar':result['nike_name'],
+                'mobile':result['mobile']
             }
         self.render(data)
