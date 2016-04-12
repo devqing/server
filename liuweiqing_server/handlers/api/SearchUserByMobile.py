@@ -17,10 +17,11 @@ class SearchUserByMobile(RequestHandler):
     def get(self, *args, **kwargs):
         mobile = self.get_argument('mobile')
         result = yield self.user_model.GetUserFromMobile(mobile)
-
-        data = {
-            '_id':str(result['_id']),
-            'nike_name':result['nike_name'],
-            'avatar':result['nike_name']
-        }
+        data={}
+        if result:
+            data = {
+                '_id':str(result['_id']),
+                'nike_name':result['nike_name'],
+                'avatar':result['nike_name']
+            }
         self.render(data)
