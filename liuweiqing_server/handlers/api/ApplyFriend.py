@@ -28,12 +28,12 @@ class AppleFriend(RequestHandler):
     def post(self, *args, **kwargs):
         fromId = self.get_argument('from_id');
         toId = self.get_argument('to_id');
-        result = rongyun_client.message_publish(
-            from_user_id='test-userid1',
-            to_user_id='test-userid2',
-            object_name='RC:TxtMsg',
-            content=json.dumps({"content":"hello"}),
-            push_content='thisisapush',
-            push_data='aa')
+        result = rongyun_client.message_system_publish(
+            from_user_id=100000,
+            to_user_id=100000,
+            object_name='RC:ContactNtf',
+            content=json.dumps({"operation":"Request","sourceUserId":fromId,"targetUserId":toId,"message":"haha","extra":"helloExtra"}),
+            push_content='添加好友',
+            push_data='添加好友')
 
         print result
