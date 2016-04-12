@@ -16,4 +16,11 @@ class SearchUserByMobile(RequestHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
         mobile = self.get_argument('mobile')
-        print 1
+        result = yield self.user_model.GetUserFromMobile(mobile)
+
+        data = {
+            '_id':str(result['_id']),
+            'nike_name':result['nike_name'],
+            'avatar':result['nike_name']
+        }
+        self.render(data)
