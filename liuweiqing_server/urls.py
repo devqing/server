@@ -16,4 +16,5 @@ urls = [
     (r'/api.jsfile', api.JsFile),
     (r'/api.search_user', api.SearchUserByMobile),
     (r'/api.apply.friend', api.AppleFriend),
+    (r'/api.userinfo', api.UserInfo),
 ]

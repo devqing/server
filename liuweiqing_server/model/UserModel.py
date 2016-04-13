@@ -52,3 +52,11 @@ class UserModel(ModelTest):
         }
         user = yield self.Find(condition)
         raise gen.Return(user)
+
+    @gen.coroutine
+    def GetUserFromUid(self, uid):
+        condition={
+            '_id':uid
+        }
+        user=yield self.Find(condition)
+        raise gen.Return(user)
