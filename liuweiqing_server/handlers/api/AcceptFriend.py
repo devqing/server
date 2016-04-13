@@ -12,6 +12,7 @@ import os
 from RequestHandler import RequestHandler
 from tornado import gen
 from rong import ApiClient
+import json
 app_key = "8brlm7ufrnrx3"
 app_secret = "ssZ9TDw2v7"
 
@@ -31,7 +32,9 @@ class AcceptFriend(RequestHandler):
             from_user_id=from_id,
             to_user_id=to_id,
             object_name='RC:InfoNtf',
-            content={"message":"您已经添加他为好友,可以聊天了","extra":""}
+            content=json.dumps({"message":"您已经添加他为好友,可以聊天了","extra":""}) ,
+            push_content='添加好友',
+            push_data='添加好友'
         )
 
         self.render({})

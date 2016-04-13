@@ -46,6 +46,11 @@ class SignUp(RequestHandler):
 			account['nike_name'],
 			'http://7xpt10.com1.z0.glb.clouddn.com/default.png'
 		)
+		fresh_user_info = rongyun_client.user_refresh(
+			uid,
+			account['nike_name'],
+			'http://7xpt10.com1.z0.glb.clouddn.com/default.png'
+		)
 		server_token = ''.join([random.choice(string.digits + string.letters) for _ in range(32)])
 		tid = yield CreatUserToken().Action(uid, server_token, rongyun_token['token'])
 		print tid
