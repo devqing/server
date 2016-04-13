@@ -30,10 +30,11 @@ class AppleFriend(RequestHandler):
         toId = self.get_argument('to_id');
         result = rongyun_client.message_system_publish(
             from_user_id=100000,
-            to_user_id=100000,
+            to_user_id=toId,
             object_name='RC:ContactNtf',
-            content=json.dumps({"operation":"Request","sourceUserId":fromId,"targetUserId":toId,"message":"haha","extra":"helloExtra"}),
+            content=json.dumps({"operation":"Request","sourceUserId":fromId,"targetUserId":toId,"message":"申请添加好友","extra":""}),
             push_content='添加好友',
-            push_data='添加好友')
+            push_data='添加好友'
+        )
 
-        print result
+        self.render()

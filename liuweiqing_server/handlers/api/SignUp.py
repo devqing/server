@@ -43,7 +43,7 @@ class SignUp(RequestHandler):
 		rongyun_token = rongyun_client.user_get_token(
 			uid,
 			account['nike_name'],
-			'http://www.rongcloud.cn/images/logo.png'
+			'http://7xpt10.com1.z0.glb.clouddn.com/default.png'
 		)
 		server_token = ''.join([random.choice(string.digits + string.letters) for _ in range(32)])
 		tid = yield CreatUserToken().Action(uid, server_token, rongyun_token['token'])
@@ -54,7 +54,8 @@ class SignUp(RequestHandler):
 			'_id':str(account['_id']),
 			'nike_name':account['nike_name'],
 			'server_token':token_result['server_token'],
-			'token':token_result['rongyun_token']
+			'token':token_result['rongyun_token'],
+			'avatar':account['avatar']
 		}
 
 		self.render(result)

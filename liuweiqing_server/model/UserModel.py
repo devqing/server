@@ -21,11 +21,14 @@ class UserModel(ModelTest):
             'mobile':mobile
         }
         user = yield self.Find(condition)
+        friends = []
         if not user:
             condition = {
                 'mobile':mobile,
                 'password':password,
                 'nike_name':'悟空',
+                'friends':friends,
+                'avatar':'http://7xpt10.com1.z0.glb.clouddn.com/default.png',
                 'creat_time':int(time.time() * 1000)
             }
             uid = yield self.Insert(condition)
