@@ -37,4 +37,4 @@ class AppleFriend(RequestHandler):
             push_data='添加好友'
         )
 
-        self.render()
+        self.render({})
