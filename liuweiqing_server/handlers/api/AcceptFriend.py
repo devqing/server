@@ -27,7 +27,7 @@ class AcceptFriend(RequestHandler):
         from_id=self.get_argument('from_id')
         to_id=self.get_argument('to_id')
 
-        result = rongyun_client.message_system_publish(
+        result = rongyun_client.message_publish(
             from_user_id=from_id,
             to_user_id=to_id,
             object_name='RC:InfoNtf',
