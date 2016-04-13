@@ -14,3 +14,4 @@ from JsFile import JsFile
 from SearchUserByMobile import SearchUserByMobile
 from ApplyFriend import AppleFriend
 from UserInfo import UserInfo
+from AcceptFriend import AcceptFriend
