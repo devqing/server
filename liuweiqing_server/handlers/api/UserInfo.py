@@ -18,9 +18,17 @@ class UserInfo(RequestHandler):
     def get(self, *args, **kwargs):
         uid=ObjectId(self.get_argument('uid'))
         user=yield self.user_model.GetUserFromUid(uid)
-        result={
-            '_id':str(user['_id']),
-            'nike_name':user['nike_name'],
-            'avatar':user['avatar']
-        }
-        self.render(result)
+        # while (yield user.fetch_next):
+        #     document = user.next_object()
+        #     print document
+        # result={
+        #     '_id':str(user['_id']),
+        #     'nike_name':user['nike_name'],
+        #     'avatar':user['avatar']
+        # }
+        # user1=ObjectId('570f5c6a6703c06043cbd677')
+        # user2=ObjectId('570f5ca06703c06043cbd679')
+        # data=[user1,user2]
+        # users=yield self.user_model.GetUsersFromIds(data)
+        # print users
+        self.render({})

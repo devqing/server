@@ -32,4 +32,7 @@ class ModelTest(object):
         print 1
 
     def Find(self, *args, **kwargs):
-        return self.Get_db().find_one(*args, **kwargs)
+        return self.Get_db().find(*args, **kwargs)
+
+    def FindAll(self, *args, **kwargs):
+        return self.Get_db().find(*args, **kwargs)

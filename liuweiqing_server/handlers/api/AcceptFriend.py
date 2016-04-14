@@ -32,9 +32,12 @@ class AcceptFriend(RequestHandler):
             from_user_id=from_id,
             to_user_id=to_id,
             object_name='RC:InfoNtf',
-            content=json.dumps({"message":"您已经添加他为好友,可以聊天了","extra":""}) ,
-            push_content='添加好友',
-            push_data='添加好友'
+            content=json.dumps({"message":"您已经添加他为好友,可以聊天了","extra":""})
         )
-
+        result = rongyun_client.message_publish(
+            from_user_id=to_id,
+            to_user_id=from_id,
+            object_name='RC:InfoNtf',
+            content=json.dumps({"message":"您已经添加他为好友,可以聊天了","extra":""})
+        )
         self.render({})

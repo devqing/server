@@ -11,7 +11,7 @@
 import time
 from ModelTest import ModelTest
 from tornado import gen
-
+from bson.objectid import ObjectId
 class UserModel(ModelTest):
     cls = 'user'
     @gen.coroutine
@@ -56,7 +56,15 @@ class UserModel(ModelTest):
     @gen.coroutine
     def GetUserFromUid(self, uid):
         condition={
-            '_id':uid
+            "_id":uid
         }
-        user=yield self.Find(condition)
-        raise gen.Return(user)
+        user=yield self.Find({"_id": ObjectId("570f5c6a6703c06043cbd677")})
+
+        # raise gen.Return(user)
+
+    @gen.coroutine
+    def GetUsersFromIds(self, ids):
+
+        condition={"_id":{"$in":ids}}
+        users=yield self.Find(condition)
+        raise gen.Return(users)
