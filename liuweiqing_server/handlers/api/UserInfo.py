@@ -17,7 +17,7 @@ class UserInfo(RequestHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
         uid=ObjectId(self.get_argument('uid'))
-        user=yield self.user_model.GetUserFromUid(uid)
+        reuslt = yield self.user_model.GetUserFromUid(uid)
         # while (yield user.fetch_next):
         #     document = user.next_object()
         #     print document
@@ -26,9 +26,10 @@ class UserInfo(RequestHandler):
         #     'nike_name':user['nike_name'],
         #     'avatar':user['avatar']
         # }
-        # user1=ObjectId('570f5c6a6703c06043cbd677')
-        # user2=ObjectId('570f5ca06703c06043cbd679')
-        # data=[user1,user2]
-        # users=yield self.user_model.GetUsersFromIds(data)
+        user1=ObjectId('570f5c6a6703c06043cbd677')
+        user2=ObjectId('570f5ca06703c06043cbd679')
+        user3=ObjectId('570f5cbd6703c06043cbd67b')
+        data=[user1,user2,user3]
+        users=yield self.user_model.GetUsersFromIds(data)
         # print users
         self.render({})

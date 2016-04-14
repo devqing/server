@@ -58,13 +58,16 @@ class UserModel(ModelTest):
         condition={
             "_id":uid
         }
-        user=yield self.Find({"_id": ObjectId("570f5c6a6703c06043cbd677")})
-
-        # raise gen.Return(user)
+        user = yield self.Find({"_id": uid})
+        # print user
+        raise gen.Return(user)
 
     @gen.coroutine
     def GetUsersFromIds(self, ids):
 
         condition={"_id":{"$in":ids}}
-        users=yield self.Find(condition)
+        users=yield self.FindAll(condition)
+        for i in users:
+            print i
+        # print users
         raise gen.Return(users)
