@@ -18,4 +18,5 @@ urls = [
     (r'/api.apply.friend', api.AppleFriend),
     (r'/api.userinfo', api.UserInfo),
     (r'/api.accept', api.AcceptFriend),
+    (r'/api.friends', api.Friends),
 ]

@@ -9,7 +9,6 @@
 """
 
 from base import dbs
-import pymongo
 
 class ModelTest(object):
 
@@ -32,12 +31,4 @@ class ModelTest(object):
         print 1
 
     def Find(self, *args, **kwargs):
-        return self.Get_db().find(*args, **kwargs).to_list(40)
-        # for i in relsut:
-        #     print i
-        # while (yield relsut.fetch_next):
-        #     document = relsut.next_object()
-        #     print document
-
-    def FindAll(self, *args, **kwargs):
-        return self.Get_db().find(*args, **kwargs).to_list(1)
+        return self.Get_db().find_one(*args, **kwargs)

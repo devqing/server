@@ -58,16 +58,27 @@ class UserModel(ModelTest):
         condition={
             "_id":uid
         }
-        user = yield self.Find({"_id": uid})
-        # print user
+        user = yield self.Find(condition)
         raise gen.Return(user)
 
     @gen.coroutine
     def GetUsersFromIds(self, ids):
-
         condition={"_id":{"$in":ids}}
-        users=yield self.FindAll(condition)
-        for i in users:
-            print i
-        # print users
+        users = yield self.Get_db().find(condition).to_list(None)
+        # for i in users:
+        #     print i
         raise gen.Return(users)
+
+    @gen.coroutine
+    def UpdateFriendsByNewFriend(self, source_id, friend_id):
+        conditon={
+            '_id':source_id
+        }
+        seter={
+            '$push':{
+                'friends':friend_id
+            }
+        }
+        uid = yield self.Update(conditon, seter)
+
+        raise gen.Return(uid)
