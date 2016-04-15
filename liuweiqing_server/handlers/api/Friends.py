@@ -18,6 +18,16 @@ class Friends(RequestHandler):
     def get(self, *args, **kwargs):
         uid=ObjectId(self.get_argument('uid'))
         user = yield self.user_model.GetUserFromUid(uid)
-        # print user
         users = yield self.user_model.GetUsersFromIds(user['friends'])
-        print users
+        data=[]
+        for i in users:
+            friend={
+                '_id':str(i['_id']),
+                'nike_name':i['nike_name'],
+                'avatar':i['avatar']
+            }
+            data.append(friend)
+        result={
+            'friends':data
+        }
+        self.render(result)
