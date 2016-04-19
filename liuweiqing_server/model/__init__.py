@@ -11,3 +11,4 @@
 from  AccountModel import AccountModel
 from  UserModel import UserModel
 from  TokenModel import TokenModel
+from  ApplyModel import ApplyModel

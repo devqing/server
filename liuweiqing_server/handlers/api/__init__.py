@@ -16,3 +16,5 @@ from ApplyFriend import AppleFriend
 from UserInfo import UserInfo
 from AcceptFriend import AcceptFriend
 from Friends import Friends
+from UploadToken import UploadToken
+from UpdateUserInfo import UpdateUserInfo

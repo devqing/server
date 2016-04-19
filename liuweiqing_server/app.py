@@ -19,13 +19,14 @@ import tornado.web
 from tornado.options import define, options
 from urls import urls
 import logging
+from base import Application
 
 define("port", default=1880, help="run on the given port", type=int)
 
 
 def main():
 	tornado.options.parse_command_line()
-	app = tornado.web.Application(
+	app = Application(
         urls,
         template_path=os.path.join(os.path.dirname(__file__), "templates")
     )

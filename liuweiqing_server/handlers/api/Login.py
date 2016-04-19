@@ -34,6 +34,9 @@ class Login(RequestHandler):
             'nike_name':user['nike_name'],
             'server_token':token_result['server_token'],
             'token':token_result['rongyun_token'],
-            'avatar':user['avatar']
+            'avatar':user['avatar'],
+            'unique_name':user['unique_name'],
+			'sex':user['sex'],
+			'signature':user['signature']
         }
         self.render(result)

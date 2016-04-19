@@ -15,13 +15,6 @@ from rong import ApiClient
 import json
 from bson.objectid import ObjectId
 
-app_key = "8brlm7ufrnrx3"
-app_secret = "ssZ9TDw2v7"
-
-os.environ.setdefault('rongcloud_app_key', app_key)
-os.environ.setdefault('rongcloud_app_secret', app_secret)
-
-rongyun_client = ApiClient()
 
 class AcceptFriend(RequestHandler):
 
@@ -30,13 +23,13 @@ class AcceptFriend(RequestHandler):
         from_id=self.get_argument('from_id')
         to_id=self.get_argument('to_id')
 
-        result = rongyun_client.message_publish(
+        result = self.application.rong_client.message_publish(
             from_user_id=from_id,
             to_user_id=to_id,
             object_name='RC:InfoNtf',
             content=json.dumps({"message":"您已经添加他为好友,可以聊天了","extra":""})
         )
-        result = rongyun_client.message_publish(
+        result = self.application.rong_client.message_publish(
             from_user_id=to_id,
             to_user_id=from_id,
             object_name='RC:InfoNtf',

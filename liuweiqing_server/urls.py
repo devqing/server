@@ -19,4 +19,6 @@ urls = [
     (r'/api.userinfo', api.UserInfo),
     (r'/api.accept', api.AcceptFriend),
     (r'/api.friends', api.Friends),
+    (r'/api.upload_token', api.UploadToken),
+    (r'/api.update_userinfo', api.UpdateUserInfo),
 ]

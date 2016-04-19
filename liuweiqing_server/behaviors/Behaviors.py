@@ -8,9 +8,9 @@
 @date: 16/3/31 下午6:25
 """
 
-from model import AccountModel
 from model import UserModel
 from model import TokenModel
+from model import ApplyModel
 
 class Bahaviors(object):
     def __init__(self):
@@ -23,3 +23,7 @@ class Bahaviors(object):
     @property
     def token_model(self):
         return TokenModel()
+
+    @property
+    def apply_model(self):
+        return ApplyModel()

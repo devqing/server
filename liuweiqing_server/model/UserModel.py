@@ -29,6 +29,9 @@ class UserModel(ModelTest):
                 'nike_name':'悟空',
                 'friends':friends,
                 'avatar':'http://7xpt10.com1.z0.glb.clouddn.com/default.png',
+                'signature':None,
+                'sex':None,
+                'unique_name':None,
                 'creat_time':int(time.time() * 1000)
             }
             uid = yield self.Insert(condition)
@@ -65,8 +68,6 @@ class UserModel(ModelTest):
     def GetUsersFromIds(self, ids):
         condition={"_id":{"$in":ids}}
         users = yield self.Get_db().find(condition).to_list(None)
-        # for i in users:
-        #     print i
         raise gen.Return(users)
 
     @gen.coroutine
@@ -82,3 +83,16 @@ class UserModel(ModelTest):
         uid = yield self.Update(conditon, seter)
 
         raise gen.Return(uid)
+
+    @gen.coroutine
+    def UpdateUserInfo(self, uid, condition):
+        updated_id={
+            '_id':uid
+        }
+        updater={
+            '$set':condition
+        }
+        uid=yield self.Update(updated_id,updater)
+
+        raise gen.Return(uid)
+

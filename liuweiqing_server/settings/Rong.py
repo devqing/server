@@ -4,9 +4,9 @@
 """
 @author: liuweiqing
 @software: PyCharm Community Edition
-@file: __init__.py.py
-@date: 16/3/29 下午2:24
+@file: Rong.py
+@date: 16/4/19 下午1:29
 """
 
-import Rong
-import Qiniu
+APP_KEY = "8brlm7ufrnrx3"
+APP_SECRET = "ssZ9TDw2v7"

@@ -23,5 +23,17 @@ class PasswordError(APIError):
         super(PasswordError, self).__init__(code, reason)
 
 class AccoountNotExists(APIError):
-    def __init__(self, code=1002, reason='账户不存在'):
+    def __init__(self, code=1003, reason='账户不存在'):
         super(AccoountNotExists, self).__init__(code, reason)
+
+class ApplyAlreadyExists(APIError):
+    def __init__(self, code=1004, reason='已经发送过好友请求'):
+        super(ApplyAlreadyExists, self).__init__(code, reason)
+
+class UnknowError(APIError):
+    def __init__(self, code=1005, reason='未知错误'):
+        super(UnknowError, self).__init__(code, reason)
+
+class OriginalPwdError(APIError):
+    def __init__(self, code=1006, reason='旧密码错误'):
+        super(OriginalPwdError, self).__init__(code, reason)
