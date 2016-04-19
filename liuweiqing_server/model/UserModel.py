@@ -29,9 +29,9 @@ class UserModel(ModelTest):
                 'nike_name':'悟空',
                 'friends':friends,
                 'avatar':'http://7xpt10.com1.z0.glb.clouddn.com/default.png',
-                'signature':None,
-                'sex':None,
-                'unique_name':None,
+                'signature':'',
+                'sex':'',
+                'unique_name':'',
                 'creat_time':int(time.time() * 1000)
             }
             uid = yield self.Insert(condition)
