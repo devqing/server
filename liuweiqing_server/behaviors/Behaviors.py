@@ -11,6 +11,7 @@
 from model import UserModel
 from model import TokenModel
 from model import ApplyModel
+from model import ImageIdModel
 
 class Bahaviors(object):
     def __init__(self):
@@ -27,3 +28,7 @@ class Bahaviors(object):
     @property
     def apply_model(self):
         return ApplyModel()
+
+    @property
+    def user_avatar_model(self):
+        return ImageIdModel()
