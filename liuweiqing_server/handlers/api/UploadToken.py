@@ -22,7 +22,7 @@ class UploadToken(RequestHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
         uid=self.get_argument('uid')
-        condition="{\"scope\":\"liuweiqing\",\"deadline\":%d}"%(int(time.time()))
+        condition="{\"scope\":\"liuweiqing:%s\",\"deadline\":%d}"%(uid,int(time.time())+3600)
         encoded = base64.b64encode(condition)
         has = hmac.new(settings.Qiniu.SECRET_KEY, encoded, sha1)
         encodedSign = base64.b64encode(has.digest())
