@@ -18,3 +18,4 @@ from AcceptFriend import AcceptFriend
 from Friends import Friends
 from UploadToken import UploadToken
 from UpdateUserInfo import UpdateUserInfo
+from Nginx import Nginx
