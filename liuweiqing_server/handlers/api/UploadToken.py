@@ -25,17 +25,16 @@ class UploadToken(RequestHandler):
         uid=self.get_argument('uid').encode("utf8")
 
         aid=yield CreatUserAvatar().Action()
-        print aid
-        # aid=aid.encode("utf8")
-        avatar_id=str(aid).encode('utf8')
 
-        condition="{\"scope\":\"liuweiqing:123123123123\",\"deadline\":%d}"%(1461155867+1000000)
-        print condition
+        avatar_id=str(aid).encode('utf8')
+        avatar_id = avatar_id+".jpg"
+        avatar_id = avatar_id.encode("utf8")
+        condition="{\"scope\":\"liuweiqing:%s\",\"deadline\":%d}"%(avatar_id,int(time.time())+3600)
         encoded = base64.b64encode(condition)
         has = hmac.new(settings.Qiniu.SECRET_KEY, encoded, sha1)
         encodedSign = base64.b64encode(has.digest())
-
+        encodedSign = encodedSign.replace("/","_")
+        encodedSign = encodedSign.replace("+","-")
         upload_token="%s:%s:%s"%(settings.Qiniu.ACCESS_KEY,encodedSign,encoded)
-        print upload_token
-        self.render({"token":upload_token,'key':'123123123123'})
+        self.render({"token":upload_token,'key':avatar_id})
 
