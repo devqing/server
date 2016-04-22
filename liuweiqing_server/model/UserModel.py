@@ -28,7 +28,7 @@ class UserModel(ModelTest):
                 'password':password,
                 'nike_name':'悟空',
                 'friends':friends,
-                'avatar':'http://7xpt10.com1.z0.glb.clouddn.com/default.png',
+                'avatar':'http://7xpt10.com1.z0.glb.clouddn.com/default.jpg',
                 'signature':'',
                 'sex':'',
                 'unique_name':'',
