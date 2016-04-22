@@ -8,5 +8,5 @@
 @date: 16/4/19 下午1:29
 """
 
-APP_KEY = "8brlm7ufrnrx3"
-APP_SECRET = "ssZ9TDw2v7"
+APP_KEY = "0vnjpoadn9atz"
+APP_SECRET = "ztP5vLstZkS"

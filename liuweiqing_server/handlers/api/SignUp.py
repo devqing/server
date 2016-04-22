@@ -32,21 +32,23 @@ class SignUp(RequestHandler):
 		if not flag:
 			raise error.AccountAlreadyExists()
 		account = yield self.user_model.GetUserFromMobile(mobile)
-		# uid = str(account['_id'])
-		# rongyun_token = self.application.rong_client.user_get_token(
-		# 	uid,
-		# 	account['nike_name'],
-		# 	'http://7xpt10.com1.z0.glb.clouddn.com/default.png'
-		# )
-        #
-		# server_token = ''.join([random.choice(string.digits + string.letters) for _ in range(32)])
-		# tid = yield CreatUserToken().Action(uid, server_token, rongyun_token['token'])
-		# print tid
-		# token_result = yield self.token_model.GetTokenFromTid(tid)
-		# print token_result['server_token']
+		uid = str(account['_id'])
+		rongyun_token = self.application.rong_client.user_get_token(
+			uid,
+			account['nike_name'],
+			'http://7xpt10.com1.z0.glb.clouddn.com/default.png'
+		)
+
+		server_token = ''.join([random.choice(string.digits + string.letters) for _ in range(32)])
+		tid = yield CreatUserToken().Action(uid, server_token, rongyun_token['token'])
+		print tid
+		token_result = yield self.token_model.GetTokenFromTid(tid)
+		print token_result['server_token']
 		result = {
 			'_id':str(account['_id']),
 			'nike_name':account['nike_name'],
+			'server_token':token_result['server_token'],
+			'token':token_result['rongyun_token'],
 			'avatar':account['avatar'],
 			'unique_name':account['unique_name'],
 			'sex':account['sex'],
