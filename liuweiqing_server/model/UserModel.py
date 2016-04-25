@@ -7,7 +7,7 @@
 @file: UserModel.py
 @date: 16/4/6 上午10:58
 """
-
+import random
 import time
 from ModelTest import ModelTest
 from tornado import gen
@@ -23,10 +23,16 @@ class UserModel(ModelTest):
         user = yield self.Find(condition)
         friends = []
         if not user:
+            seed = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@"
+            sa = []
+            for i in range(8):
+                sa.append(random.choice(seed))
+            nike_name = ''.join(sa)
+            nike_name = "kobe:%s"%(nike_name)
             condition = {
                 'mobile':mobile,
                 'password':password,
-                'nike_name':'悟空',
+                'nike_name':nike_name,
                 'friends':friends,
                 'avatar':'http://7xpt10.com1.z0.glb.clouddn.com/default.jpg',
                 'signature':'',

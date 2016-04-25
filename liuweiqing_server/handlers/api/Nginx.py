@@ -7,7 +7,7 @@
 @file: Nginx.py
 @date: 16/4/21 下午7:11
 """
-
+import random
 from RequestHandler import RequestHandler
 from tornado import gen
 
